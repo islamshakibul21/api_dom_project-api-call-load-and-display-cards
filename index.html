@@ -6,13 +6,23 @@
     <title>Api project</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+<style>
+    .active{
+        background-color:red;
+    }
+   </style>
 </head>
+
 <body>
     <header>
         <nav class="flex justify-between w-11/12 mx-auto items-center border-b-2 border-[#17171720] py-5">
             <div class="logo">
                 <img  class="w-[120px]" src="img-src/Logo.png" alt=""></div>
-                <div class="blog"><button class="btn bg-gray-300">sort by view</button></div>
+                <div class="blog"><label id="input" class="input">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
+                    <input type="search" required placeholder="Search"/>
+                  </label></div>
             <div class="blog"><button class="btn bg-[#FF1F3D]">blog</button></div>
 
         </nav>
@@ -22,17 +32,38 @@
     <nav id="category-container" class="flex justify-center py-3 gap-x-5 ">
        
         <div>
-            <button class="btn btn-sm text-white bg-[#FF1F3D]">All</button>
+            <button id="btn-all" onclick="loadVideos()" class="btn btn-sm  bg-gray-100  text-black ">All</button>
         </div>
     </nav>
+      
+    <section id="loader" class="text-center py-20 hidden ">
+        <span class="loading loading-dots loading-xl"></span>
+    </section>
 
     <section class="w-11/12 mx-auto  gap-4 grid grid-cols-4" id="video-container">
-       
+       <div class="col-span-full
+         flex flex-col py-40 justify-center items-center ">
+        <img class="w-[120px] " src="img-src/Icon.png" alt="">
+        <h2 class="font-bold  text-xl">oops!Sorry no content here</h2>
+       </div>
     </section>
+
+    <!-- You can open the modal using ID.showModal() method -->
+ 
+  <dialog id="show_detail" class="modal">
+   <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+     <div id="detail-Container"></div>
+
+  </div>
+ </dialog>
 
           
    
 
    <script src="javascript/script.js"></script>
+  
 </body>
 </html>
